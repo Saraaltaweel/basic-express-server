@@ -1,10 +1,11 @@
 'use strict';
 
 module.exports=(req,res,next)=>{
-    if (req.query.name){
-        next()
-    }
-    if (req.query.name=== ''){
-        next('inter the name')
-    }
-};
+  let name=req.query.name;
+  if(name){
+      next();
+  }
+  else{
+      next('invalid name input');
+  }
+}
